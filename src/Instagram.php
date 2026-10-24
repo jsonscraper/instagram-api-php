@@ -2,7 +2,7 @@
 declare(strict_types=1);
 namespace JsonScraper;
 final class Instagram extends Client {
-    public function __construct(string $licenseKey, ?string $baseUrl=null, float $timeout=30, int $retries=0, ?int $cacheTimeout=null, bool $models=false) { parent::__construct($licenseKey,'instagram',$baseUrl,$timeout,$retries,$cacheTimeout,$models); }
+    public function __construct(string $licenseKey, ?string $baseUrl=null, float $timeout=30, int $retries=0, ?int $cacheTimeout=null, bool $models=false) { parent::__construct($licenseKey,$baseUrl,$timeout,$retries,$cacheTimeout,$models); }
     public function v1_user_by_id(array $params=[]): mixed { return $this->request('/v1/user/by/id',$params); }
     public function v1_user_by_username(array $params=[]): mixed { return $this->request('/v1/user/by/username',$params); }
     public function v1_user_by_url(array $params=[]): mixed { return $this->request('/v1/user/by/url',$params); }

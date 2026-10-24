@@ -1,6 +1,6 @@
 {
-  "name": "jsonscraper/sdk",
-  "description": "Official PHP SDK for jsonscraper Instagram and TikTok APIs",
+  "name": "jsonscraper/instagram-api-php",
+  "description": "Instagram Scraper API client for PHP with Composer and response models",
   "type": "library",
   "license": "MIT",
   "require": {
@@ -17,8 +17,10 @@
   },
   "keywords": [
     "instagram",
-    "tiktok",
-    "api",
+    "instagram-api",
+    "instagram-scraper",
+    "scraper-api",
+    "jsonscraper",
     "sdk"
   ],
   "homepage": "https://jsonscraper.com"

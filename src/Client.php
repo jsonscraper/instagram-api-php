@@ -4,9 +4,9 @@ namespace JsonScraper;
 class Client {
     private string $key;
     private string $baseUrl;
-    public function __construct(string $licenseKey, string $product='instagram', ?string $baseUrl=null, private float $timeout=30, private int $retries=0, private ?int $cacheTimeout=null, private bool $models=false) {
-        if (!in_array($product,['instagram','tiktok'],true) || trim($licenseKey)==='') throw new \InvalidArgumentException('A product and license key are required');
-        $baseUrl=$baseUrl ?? ['instagram'=>'https://ig.jsonscraper.com','tiktok'=>'https://tiktok.evelode.com'][$product];
+    public function __construct(string $licenseKey, ?string $baseUrl=null, private float $timeout=30, private int $retries=0, private ?int $cacheTimeout=null, private bool $models=false) {
+        if (trim($licenseKey)==='') throw new \InvalidArgumentException('A product and license key are required');
+        $baseUrl=$baseUrl ?? 'https://ig.jsonscraper.com';
         $url=parse_url($baseUrl);
         if (!$url || empty($url['host']) || isset($url['user']) || isset($url['pass']) || isset($url['query']) || isset($url['fragment']) || !in_array($url['scheme']??'',['https','http'],true) || ($url['scheme']!=='https' && !in_array($url['host'],['localhost','127.0.0.1','[::1]'],true))) throw new \InvalidArgumentException('Use an HTTPS base URL');
         if(!is_finite($timeout) || $timeout<=0 || $retries<0 || $retries>5) throw new \InvalidArgumentException('Invalid timeout or retries');
