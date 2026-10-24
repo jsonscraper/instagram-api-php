@@ -5,6 +5,9 @@
 [![Last commit](https://img.shields.io/github/last-commit/jsonscraper/instagram-api-php?style=flat-square)](https://github.com/jsonscraper/instagram-api-php/commits)
 [![MIT license](https://img.shields.io/github/license/jsonscraper/instagram-api-php?style=flat-square)](LICENSE)
 
+[![Packagist version](https://img.shields.io/packagist/v/jsonscraper/instagram-api-php?style=flat-square)](https://packagist.org/packages/jsonscraper/instagram-api-php)
+[![Packagist PHP support](https://img.shields.io/packagist/php-v/jsonscraper/instagram-api-php?style=flat-square)](https://packagist.org/packages/jsonscraper/instagram-api-php)
+
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/jsonscraper/workspace/jsonscraper/collection/52903714-fe84d353-0a19-431f-a39d-1c2640d96fb0)
 
 
@@ -20,6 +23,7 @@ Official PHP client for the [jsonscraper Instagram Scraper API](https://jsonscra
 - [Installation](#1-install)
 - [License key and access](#2-get-api-access)
 - [First request](#3-make-your-first-request)
+- [Available methods](#available-methods)
 - [Request examples](#more-request-examples)
 - [Complete example catalogue](#complete-request-example-catalogue)
 - [Endpoint reference](docs/endpoints.md)
@@ -40,11 +44,10 @@ This repository contains the **Instagram SDK only**. It calls the hosted jsonscr
 Requirements: **PHP 8.1+, Composer, cURL and mbstring**.
 
 ```sh
-composer config repositories.instagram vcs https://github.com/jsonscraper/instagram-api-php
 composer require jsonscraper/instagram-api-php:^0.1
 ```
 
-The GitHub installation above works independently of package registry registration. A public PyPI/npm/Packagist listing is a separate release step; this README does not claim those listings already exist.
+The Composer package is published on [Packagist](https://packagist.org/packages/jsonscraper/instagram-api-php).
 
 To develop from a checkout, clone this repository and install its dependencies. Python: `python -m pip install .`; Node.js: `npm ci`; PHP: `composer install`; Go: `go mod download`; Java: `mvn install`; C#: `dotnet build`.
 
@@ -92,6 +95,23 @@ The profile response follows this shape (shortened; fields can be absent or null
 ```
 
 **[Response handling guide](docs/responses.md)** explains the envelope, application errors and identifiers. Profile responses were verified against the live API on 2026-10-25.
+
+## Available methods
+
+97 named API methods are available. Start with these commonly used requests, then open the [complete method reference](docs/endpoints.md) for every method and its parameters.
+
+| Use case | SDK method | Query parameters |
+| --- | --- | --- |
+| Get user info by username (by ID is faster) | `v1_user_by_username()` | `username`, `cache_timeout` |
+| Get user info by ID | `v1_user_by_id()` | `id`, `cache_timeout` |
+| Get posts (chunked) | `v1_user_medias_chunk()` | `user_id`, `end_cursor`, `cache_timeout` |
+| Get user stories by ID | `v1_user_stories()` | `user_id`, `amount`, `force`, `cache_timeout` |
+| Get media info by shortcode | `v1_media_by_code()` | `code`, `cache_timeout` |
+| Get media comments (chunked) | `v1_media_comments_chunk()` | `id`, `min_id`, `max_id`, `can_support_threading`, `cache_timeout` |
+| Search users | `v1_search_users()` | `query`, `cache_timeout` |
+| Search hashtags | `v1_search_hashtags()` | `query`, `cache_timeout` |
+
+Each method is documented with a [complete runnable example](examples/README.md). The transport preserves the full response envelope, including application status, payload and optional quota metadata.
 
 ## Find the request you need
 
@@ -285,6 +305,12 @@ Every link opens a full program with parameters, authentication, timeout, errors
 - [Search top content by keyword](examples/endpoints/gql_topsearch.php) — `GET /gql/topsearch`.
 
 </details>
+
+## LazyJsonMapper response models
+
+The client uses **LazyJsonMapper** for optional typed response objects. With `models: true`, `APIResponse → getIg()` exposes getters such as `getUsername()`, `getFullName()`, `getPk()` and `getFollowerCount()`. Media, comments, collections, image/video variants, locations and hashtags also have ready-to-use model classes. Array mode remains available.
+
+**[Model usage and hierarchy](docs/models.md)** · **[Profile model definition](src/Response/Model/Instagram.php)**
 
 ## Configuration
 

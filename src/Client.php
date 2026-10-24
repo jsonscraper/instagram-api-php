@@ -26,7 +26,7 @@ class Client {
             if($body===false)throw new \RuntimeException('Unable to reach jsonscraper API');
             if($status>=200 && $status<300){
                 if(!str_contains(strtolower($type),'json'))return $body;
-                try{$data=json_decode($body,true,512,JSON_THROW_ON_ERROR|JSON_BIGINT_AS_STRING);return $this->models && is_array($data)?new \JsonScraper\Response\APIResponse($data):$data;}catch(\JsonException){throw new \RuntimeException('Invalid JSON response');}
+                try{$data=json_decode($body,true,512,JSON_THROW_ON_ERROR|JSON_BIGINT_AS_STRING);return $this->models && is_array($data)?(new \JsonScraper\Response\APIResponse($data))->withEndpoint($path):$data;}catch(\JsonException){throw new \RuntimeException('Invalid JSON response');}
             }
             if($attempt===$this->retries || !in_array($status,[429,502,503,504],true))throw new APIError($status,$retryAfter);
             sleep($retryAfter!==null && ctype_digit($retryAfter)?min(60,(int)$retryAfter):min(2**$attempt,30));
