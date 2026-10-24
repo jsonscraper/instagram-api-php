@@ -1,0 +1,188 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "57078651c6e7b8e9c3ea173ffa58bd06",
+    "packages": [
+        {
+            "name": "psr/http-message",
+            "version": "2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-message.git",
+                "reference": "402d35bcb92c70c026d1a6a9883f06b2ead23d71"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/402d35bcb92c70c026d1a6a9883f06b2ead23d71",
+                "reference": "402d35bcb92c70c026d1a6a9883f06b2ead23d71",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2 || ^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP messages",
+            "homepage": "https://github.com/php-fig/http-message",
+            "keywords": [
+                "http",
+                "http-message",
+                "psr",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "support": {
+                "source": "https://github.com/php-fig/http-message/tree/2.0"
+            },
+            "time": "2023-04-04T09:54:51+00:00"
+        },
+        {
+            "name": "sergeykomlev/getoptionkit",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sergeykomlev/getoptionkit.git",
+                "reference": "e793c0b63a51aad8c818569fe7b3b39eb0458cba"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sergeykomlev/getoptionkit/zipball/e793c0b63a51aad8c818569fe7b3b39eb0458cba",
+                "reference": "e793c0b63a51aad8c818569fe7b3b39eb0458cba",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.0 || ^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.7.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GetOptionKit\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Yo-An Lin",
+                    "email": "yoanlin93@gmail.com"
+                },
+                {
+                    "name": "Sergey Komlev",
+                    "homepage": "https://github.com/sergeykomlev",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Powerful command-line option toolkit",
+            "homepage": "http://github.com/sergeykomlev/etoptionkit",
+            "support": {
+                "issues": "https://github.com/sergeykomlev/getoptionkit/issues",
+                "source": "https://github.com/sergeykomlev/getoptionkit/tree/2.0.0"
+            },
+            "time": "2023-06-16T20:26:42+00:00"
+        },
+        {
+            "name": "sergeykomlev/lazyjsonmapper",
+            "version": "2.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sergeykomlev/lazyjsonmapper.git",
+                "reference": "fcc21da04add54bac0e6514680a7d54268ccdf77"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sergeykomlev/lazyjsonmapper/zipball/fcc21da04add54bac0e6514680a7d54268ccdf77",
+                "reference": "fcc21da04add54bac0e6514680a7d54268ccdf77",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6",
+                "sergeykomlev/getoptionkit": "2.*"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.7.1",
+                "phpunit/phpunit": "6.*"
+            },
+            "bin": [
+                "bin/lazydoctor"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "LazyJsonMapper\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "SteveJobzniak",
+                    "homepage": "https://github.com/SteveJobzniak",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Sergey Komlev",
+                    "homepage": "https://github.com/sergeykomlev",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Advanced, intelligent & automatic object-oriented JSON containers for PHP.",
+            "homepage": "https://github.com/SteveJobzniak/LazyJsonMapper",
+            "keywords": [
+                "development",
+                "json"
+            ],
+            "support": {
+                "source": "https://github.com/sergeykomlev/lazyjsonmapper/tree/2.0.2"
+            },
+            "time": "2023-06-16T20:20:20+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=8.1",
+        "ext-curl": "*",
+        "ext-json": "*"
+    },
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
+}
