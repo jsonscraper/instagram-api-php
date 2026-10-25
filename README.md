@@ -6,13 +6,19 @@
 [![MIT license](https://img.shields.io/github/license/jsonscraper/instagram-api-php?style=flat-square)](LICENSE)
 [![Packagist version](https://img.shields.io/packagist/v/jsonscraper/instagram-api-php?style=flat-square)](https://packagist.org/packages/jsonscraper/instagram-api-php)
 [![Packagist PHP support](https://img.shields.io/packagist/php-v/jsonscraper/instagram-api-php?style=flat-square)](https://packagist.org/packages/jsonscraper/instagram-api-php)
+
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/jsonscraper/workspace/jsonscraper/collection/52903714-fe84d353-0a19-431f-a39d-1c2640d96fb0)
 
 Composer client with **LazyJsonMapper response models** and ready-to-run examples. Supports **97 Instagram Scraper API methods**.
 
 **Package:** `jsonscraper/instagram-api-php` · **[Methods](#main-methods)** · **[Examples](#ready-to-run-examples)** · **[Documentation](docs/guide.md)**
 
-![Quick start: API key, installation, request, JSON](docs/quickstart.svg)
+<picture>
+  <source media="(max-width: 640px) and (prefers-color-scheme: dark)" srcset="docs/quickstart-mobile-dark.svg">
+  <source media="(max-width: 640px)" srcset="docs/quickstart-mobile.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/quickstart-dark.svg">
+  <img src="docs/quickstart.svg" alt="Quick start: API key, setup, first request, JSON response" width="880">
+</picture>
 
 ## Quick start
 
