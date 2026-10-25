@@ -21,7 +21,7 @@ class Client {
         for($attempt=0;$attempt<=$this->retries;$attempt++){
             $retryAfter=null;
             $ch=curl_init($this->baseUrl.$path.'?'.http_build_query($params,'','&',PHP_QUERY_RFC3986));
-            curl_setopt_array($ch,[CURLOPT_RETURNTRANSFER=>true,CURLOPT_FOLLOWLOCATION=>false,CURLOPT_CONNECTTIMEOUT_MS=>(int)ceil($this->timeout*1000),CURLOPT_TIMEOUT_MS=>(int)ceil($this->timeout*1000),CURLOPT_HTTPHEADER=>['Accept: application/json','User-Agent: jsonscraper-php/0.1.0'],CURLOPT_HEADERFUNCTION=>static function($ch,$line)use(&$retryAfter){if(stripos($line,'Retry-After:')===0)$retryAfter=trim(substr($line,12));return strlen($line);}]);
+            curl_setopt_array($ch,[CURLOPT_RETURNTRANSFER=>true,CURLOPT_FOLLOWLOCATION=>false,CURLOPT_CONNECTTIMEOUT_MS=>(int)ceil($this->timeout*1000),CURLOPT_TIMEOUT_MS=>(int)ceil($this->timeout*1000),CURLOPT_HTTPHEADER=>['Accept: application/json','User-Agent: jsonscraper-php/0.1.1'],CURLOPT_HEADERFUNCTION=>static function($ch,$line)use(&$retryAfter){if(stripos($line,'Retry-After:')===0)$retryAfter=trim(substr($line,12));return strlen($line);}]);
             $body=curl_exec($ch);$status=(int)curl_getinfo($ch,CURLINFO_RESPONSE_CODE);$type=(string)curl_getinfo($ch,CURLINFO_CONTENT_TYPE);curl_close($ch);
             if($body===false)throw new \RuntimeException('Unable to reach jsonscraper API');
             if($status>=200 && $status<300){
